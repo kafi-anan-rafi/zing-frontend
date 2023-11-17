@@ -1,8 +1,17 @@
-# React + Vite
+## Zing Frontend:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zing is an Ecommerce platform. It is the Frontend application of the adanced Fullstack ecommerce application.
 
-Currently, two official plugins are available:
+## Application Users:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Admin
+2. Customer
+3. Seller
+
+## Used Technologies:
+
+1. React.js
+2. React Router
+3. Tailwind CSS
+4. DaisyUI
+5. React Icons
