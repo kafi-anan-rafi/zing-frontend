@@ -1,6 +1,6 @@
 ## Zing Frontend:
 
-Zing is an Ecommerce platform. It is the Frontend application of the adanced Fullstack ecommerce application.
+Zing is an E-commerce platform. It is the Frontend application of the advanced Fullstack e-commerce application.
 
 ## Application Users:
 

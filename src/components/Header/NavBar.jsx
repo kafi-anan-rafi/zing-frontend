@@ -38,8 +38,8 @@ export default function NavBar() {
               ""
             ) : (
               <NavLink
-                to="/seller/login"
-                className="flex items-center md:px-2 px-1 rounded-sm hover:text-blue-500 transition-colors"
+                to="/seller/signin"
+                className="flex items-center md:px-2 px-1 rounded-sm hover:text-orange-500 transition-colors"
               >
                 <AiOutlineShop size={24} className="mr-2" />
                 <p className="hidden lg:block">Become a Seller</p>
@@ -48,7 +48,7 @@ export default function NavBar() {
             {user ? (
               <NavLink
                 to="/profile"
-                className="flex items-center md:px-2 px-1 rounded-sm hover:text-blue-500 transition-colors"
+                className="flex items-center md:px-2 px-1 rounded-sm hover:text-orange-500 transition-colors"
               >
                 <p className="hidden lg:block">{user.name}</p>
               </NavLink>
@@ -58,17 +58,17 @@ export default function NavBar() {
 
             {user ? (
               <NavLink
-                to="/logout"
-                className="flex items-center md:px-2 px-1 rounded-sm hover:text-blue-500 transition-colors"
+                to="/signout"
+                className="flex items-center md:px-2 px-1 rounded-sm hover:text-orange-500 transition-colors"
               >
                 <p>Sign out</p>
               </NavLink>
             ) : (
               <NavLink
-                to="/login"
+                to="/signin"
                 className={({ isActive }) =>
-                  `flex items-center md:px-2 px-1 rounded-sm hover:text-blue-500 transition-colors ${
-                    isActive ? "text-blue-500" : "text-white"
+                  `flex items-center md:px-2 px-1 rounded-sm hover:text-orange-500 transition-colors ${
+                    isActive ? "text-orange-500" : "text-white"
                   }`
                 }
               >
@@ -79,8 +79,8 @@ export default function NavBar() {
             <NavLink
               to="/cart"
               className={({ isActive }) =>
-                `flex items-center md:px-2 px-1 rounded-sm hover:text-blue-500 transition-colors ${
-                  isActive ? "text-blue-500" : "text-white"
+                `flex items-center md:px-2 px-1 rounded-sm hover:text-orange-500 transition-colors ${
+                  isActive ? "text-orange-500" : "text-white"
                 }`
               }
             >

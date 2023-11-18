@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import ErrorPage from "./error-page.jsx";
-import Login from "./routes/Login.jsx";
+import SignIn from "./routes/Signin.jsx";
+import SignOut from "./routes/SignOut.jsx";
 import Profile from "./routes/Profile.jsx";
 import Search from "./routes/Search.jsx";
 import NavBar from "./components/Header/NavBar.jsx";
@@ -28,8 +29,12 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path: "/login",
-        element: <Login />,
+        path: "/signin",
+        element: <SignIn />,
+      },
+      {
+        path: "/signout",
+        element: <SignOut />,
       },
       {
         path: "/search",

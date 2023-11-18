@@ -9,7 +9,7 @@ export default function SearchBox() {
   return (
     <div
       className={
-        "md:flex items-center justify-center rounded-sm bg-white md:mx-5 mx-2 hidden"
+        "md:flex items-center justify-center rounded-md bg-white md:mx-5 mx-2 hidden"
       }
     >
       <input
@@ -21,7 +21,7 @@ export default function SearchBox() {
           }
         }}
         type="text"
-        className="bg-white text-md text-black xl:w-128 md:w-96 sm:w-48 md:h-10 h-8 pl-3 outline-none rounded-sm"
+        className="bg-white text-sm rounded-md font-medium text-black xl:w-128 md:w-96 sm:w-48 md:h-10 h-8 pl-3 outline-none"
         placeholder="Search for Products, Brands and More.."
       />
       <button
@@ -30,7 +30,7 @@ export default function SearchBox() {
         }}
       >
         <BiSearch
-          className="md:mx-2 mx-1 text-blue-500 transition"
+          className="md:mx-2 mx-1 text-orange-500 transition"
           size={25}
         />
       </button>

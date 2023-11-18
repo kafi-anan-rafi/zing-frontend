@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import auth from "../services/authService";
 import axiosInstance from "../services/axiosInstance";
 
-export default function Login() {
+export default function SignIn() {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
