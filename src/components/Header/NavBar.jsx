@@ -19,7 +19,7 @@ export default function NavBar() {
   return (
     <div className="flex flex-col h-screen justify-between">
       <nav className="bg-slate-950">
-        <div className="container mx-auto px-2 flex justify-between items-center py-3 text-white">
+        <div className="container mx-auto flex justify-between items-center py-3 text-white">
           {/* Logo */}
           <NavLink
             to="/"
@@ -44,16 +44,6 @@ export default function NavBar() {
                 <AiOutlineShop size={24} className="mr-2" />
                 <p className="hidden lg:block">Become a Seller</p>
               </NavLink>
-            )}
-            {user ? (
-              <NavLink
-                to="/profile"
-                className="flex items-center md:px-2 px-1 rounded-sm hover:text-orange-500 transition-colors"
-              >
-                <p className="hidden lg:block">{user.name}</p>
-              </NavLink>
-            ) : (
-              ""
             )}
 
             {user ? (
@@ -87,8 +77,22 @@ export default function NavBar() {
               <BsCart3 size={22} className="mr-2" />
               <p className="hidden lg:block">Cart</p>
             </NavLink>
+            {user ? (
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                `flex items-center md:px-2 px-1 rounded-sm hover:text-orange-500 transition-colors ${
+                  isActive ? "text-orange-500" : "text-white"
+                }`
+              }
+              >
+                <p className="hidden lg:block"> {user.name} </p>
+                <GoPerson size={24} className="ml-2" />
+              </NavLink>
+            ) : (
+              ""
+            )}
           </div>
-
           <div className="block md:hidden cursor-pointer">
             <GiHamburgerMenu size={28} />
           </div>

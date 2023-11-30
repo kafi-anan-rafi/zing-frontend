@@ -4,11 +4,21 @@ import Product from "../components/Product/Product";
 import axiosInstance from "../services/axiosInstance";
 import { ImSpinner3 } from "react-icons/im";
 import ProductList from "../components/Product/ProductList";
+import auth from "../services/authService";
+import { paginate } from "../utils/paginate";
+import Filter from "../components/Product/Filter";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const queryParams = searchParams.get("q");
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(2);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    newProducts = paginate(products, currentPage, pageSize);
+  };
 
   useEffect(() => {
     async function getProducts() {
@@ -19,11 +29,13 @@ const Search = () => {
         const products = response.data;
         setProducts(products);
       } catch (error) {
-        console.log("Error", error);
+        console.log(error);
       }
     }
     getProducts();
   }, [queryParams]);
+
+  let newProducts = paginate(products, currentPage, pageSize);
 
   if (!products.length)
     return (
@@ -47,19 +59,21 @@ const Search = () => {
       </div>
     );
   return (
-    <>
-      <ProductList products={products} />
-      {/* <div className="container mx-auto my-5">
-        <h1 className="text-lg font-bold text-center mb-5 text-green-500">
-          {products.length} {products.length > 1 ? "Products" : "Product"} Found
+    <div className="container mx-auto my-5 grid gap-5 grid-cols-4">
+      <Filter className="col-span-1" />
+      <div className="col-span-3">
+        <h1 className="text-xl font-bold mb-5 text-gray-900 dark:text-white">
+          Results
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {products.map((p) => (
-            <Product product={p} />
-          ))}
-        </div>
-      </div> */}
-    </>
+        <ProductList
+          itemsCount={products.length}
+          products={newProducts}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </div>
+    </div>
   );
 };
 

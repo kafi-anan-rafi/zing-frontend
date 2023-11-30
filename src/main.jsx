@@ -3,13 +3,14 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import ErrorPage from "./error-page.jsx";
-import SignIn from "./routes/Signin.jsx";
-import SignOut from "./routes/SignOut.jsx";
 import Profile from "./routes/Profile.jsx";
 import Search from "./routes/Search.jsx";
 import NavBar from "./components/Header/NavBar.jsx";
 import Cart from "./components/Product/Cart";
 import ProductDetails from "./components/Product/ProductDetails.jsx";
+import SignOut from "./routes/SignOut.jsx";
+import SignUp from "./routes/SignUp.jsx";
+import SignIn from "./routes/SignIn.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/signin",
         element: <SignIn />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
       {
         path: "/signout",

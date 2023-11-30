@@ -1,17 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Product from "./Product";
+import Pagination from "./Pagination";
 
-const ProductList = ({ products }) => {
-  console.log(products);
+const ProductList = ({ products, onPageChange, pageSize, currentPage, itemsCount }) => {
   return (
-    <div className="container mx-auto my-5">
-      <h1 className="text-lg font-bold text-center mb-5 text-green-500">
-        {products?.length} {products?.length > 1 ? "Products" : "Product"} Found
-      </h1>
+    <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {products.map((p) => (
           <Product key={p.id} product={p} />
         ))}
+      </div>
+      <div className="text-center mt-5">
+        <Pagination
+          itemsCount={itemsCount}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={onPageChange}
+        />
       </div>
     </div>
   );

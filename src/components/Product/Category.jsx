@@ -27,7 +27,7 @@ export default function Category() {
         <Link
           to="/"
           key={m.id}
-          className="text-slate-900 text-center hover:text-blue-600 transition-colors py-2 m-2 rounded-md flex flex-col items-center"
+          className="text-slate-900 text-center hover:text-orange-600 transition-colors py-2 m-2 rounded-md flex flex-col items-center"
         >
           <p>{m.icon}</p>
           <p className="font-bold mt-1">{m.name}</p>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../services/authService";
 import axiosInstance from "../services/axiosInstance";
 
@@ -17,20 +17,24 @@ export default function SignIn() {
       const response = await axiosInstance.post("auth/customer/signin", user);
       const { access_token } = response.data;
       auth.setAuthToken(access_token);
-      navigate("/");
+      // navigate("/");
+      window.location = "/";
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    if(auth.getAuthToken()) navigate("/");
+    if (auth.getAuthToken()) navigate("/");
   }, []);
 
   return (
     <div className="container mx-auto w-96 h-96 items-center justify-center flex">
       <form className="form-control" onSubmit={handleSubmit}>
         <div className=" ">
+          <h1 className="text-center text-xl font-bold text-orange-500 uppercase">
+            Sign in
+          </h1>
           <label className="label " htmlFor="email">
             <span className="label-text text-md font-bold">Email</span>
           </label>
@@ -57,13 +61,24 @@ export default function SignIn() {
           />
         </div>
         <button
-          className={`btn btn-primary font-bold ${
+          className={`btn bg-gray-900 mt-3 px-5 hover:bg-gray-800 text-white font-bold ${
             user.email && user.password ? "btn-active" : "btn-disabled"
-          } mt-3 px-5`}
+          }`}
           type="submit"
         >
-          Login
+          Sign In
         </button>
+        <div className="flex dark:text-white flex-col text-center text-sm mt-3 text-gray-950">
+          <Link className="hover:underline" to="/">
+            Forget password?
+          </Link>
+          <div className="mt-1">
+            <span>Don't have account? </span>
+            <Link className="hover:underline" to="/signup">
+              Sign Up
+            </Link>
+          </div>
+        </div>
       </form>
     </div>
   );

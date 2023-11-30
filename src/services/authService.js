@@ -12,6 +12,14 @@ export function getAuthToken() {
   }
 }
 
+export function removeAuthToken() {
+  if (typeof window !== undefined) {
+    if (localStorage.getItem(token) !== null) {
+      localStorage.removeItem(token);
+    }
+  }
+}
+
 export function getUserInfo() {
   const token = getAuthToken();
   if (!token) return null;
@@ -20,7 +28,8 @@ export function getUserInfo() {
 }
 
 export default {
-  getAuthToken,
   setAuthToken,
+  getAuthToken,
+  removeAuthToken,
   getUserInfo,
 };
