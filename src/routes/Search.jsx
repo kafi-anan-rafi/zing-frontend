@@ -13,7 +13,7 @@ const Search = () => {
   const queryParams = searchParams.get("q");
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(2);
+  const [pageSize, setPageSize] = useState(3);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -62,9 +62,42 @@ const Search = () => {
     <div className="container mx-auto my-5 grid gap-5 grid-cols-4">
       <Filter className="col-span-1" />
       <div className="col-span-3">
-        <h1 className="text-xl font-bold mb-5 text-gray-900 dark:text-white">
-          Results
-        </h1>
+        <div className="flex justify-between items-center mb-5">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+            Results
+          </h1>
+          <div className="flex">
+            <div className="flex items-center justify-center mr-5">
+              <label htmlFor="dropdown" className="mr-2">
+                Show:
+              </label>
+              <select
+                id="dropdown"
+                name="dropdown"
+                className="border p-2 rounded-md text-sm cursor-pointer"
+                onChange={(e) => setPageSize(e.target.value)}
+              >
+                <option value={3}>3</option>
+                <option value={6}>6</option>
+                <option value={9}>9</option>
+              </select>
+            </div>
+            <div className="flex items-center justify-center">
+              <label htmlFor="dropdown" className="mr-2">
+                Sort By:
+              </label>
+              <select
+                id="dropdown"
+                name="dropdown"
+                className="border p-2 rounded-md text-sm"
+              >
+                <option value="option1">Default</option>
+                <option value="option1">Price (Low &gt; High)</option>
+                <option value="option1">Price (High &gt; Low)</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <ProductList
           itemsCount={products.length}
           products={newProducts}
